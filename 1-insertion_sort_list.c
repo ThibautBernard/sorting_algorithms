@@ -8,8 +8,6 @@
  */
 void swapnode(listint_t **list, listint_t *nodeP, listint_t *nodeS)
 {
-	listint_t *t = *list;
-
 	nodeS->prev = nodeP->prev;
 	nodeP->next = nodeS->next;
 	if (nodeS->next)
