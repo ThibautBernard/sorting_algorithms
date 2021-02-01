@@ -57,11 +57,8 @@ void cocktail_sort_list(listint_t **list)
 			if (change == 0)
 				current = current->next;
 		}
-		if (not_sorted == 0)
-			break;
-		not_sorted = 0;
 		change = 0;
-		while (current->prev != NULL)
+		while (current->prev != NULL && not_sorted)
 		{
 			change = 0;
 			if (current->n < current->prev->n)
