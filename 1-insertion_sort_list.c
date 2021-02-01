@@ -28,10 +28,11 @@ void swapnode(listint_t **list, listint_t *nodeP, listint_t *nodeS)
 void insertion_sort_list(listint_t **list)
 {
 	int swapped = 1;
-	listint_t *current = (*list)->next, *previous, *swap;
+	listint_t *current, *previous, *swap;
 
 	if (*list == NULL || list == NULL)
 		return;
+	current = (*list)->next;
 	while (swapped)
 	{
 		swapped = 0;
