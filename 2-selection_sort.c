@@ -14,7 +14,6 @@ void selection_sort(int *array, size_t size)
 	size_t not_sorted = 1;
 	int smallest;
 	int tmp;
-	int idx_smallest;
 
 	if (array != NULL)
 	{
@@ -25,22 +24,22 @@ void selection_sort(int *array, size_t size)
 
 			for (i = 0; i < size; i++)
 			{
-				smallest = array[i];
+				smallest = i;
 				for (j = i + 1; j < size; j++)
 				{
-					if (array[j] < smallest)
+					if (array[j] < array[smallest])
 					{
-						smallest = array[j];
-						idx_smallest = j;
+						smallest = j;
 						not_sorted = 1;
 					}
 				}
 				if (not_sorted)
 				{
 					tmp = array[i];
-					array[i] = array[idx_smallest];
-					array[idx_smallest] = tmp;
+					array[i] = array[smallest];
+					array[smallest] = tmp;
 					print_array(array, size);
+					not_sorted = 0;
 				}
 			}
 		}
