@@ -56,7 +56,7 @@ void counting_sort(int *array, size_t size)
 	int *output;
 	size_t i;
 
-	if (array == NULL)
+	if (array == NULL || size < 2)
 		return;
 	max = find_max(array, size);
 	arr_idx = malloc(sizeof(int) * (max + 1));
