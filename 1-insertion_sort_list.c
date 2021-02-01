@@ -30,7 +30,7 @@ void insertion_sort_list(listint_t **list)
 	int swapped = 1;
 	listint_t *current, *previous, *swap;
 
-	if (list == NULL)
+	if (list == NULL || *list == NULL)
 		return;
 	current = (*list)->next;
 	while (swapped)
