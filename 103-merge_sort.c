@@ -94,6 +94,9 @@ void merge_sort(int *array, size_t size)
 	int *aux_array;
 	size_t i;
 
+	if (!array)
+		return;
+
 	aux_array = malloc(sizeof(int) * size);
 	if (aux_array == NULL)
 		return;
