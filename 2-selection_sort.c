@@ -12,32 +12,35 @@ void selection_sort(int *array, size_t size)
 {
 	size_t i, j;
 	size_t not_sorted = 1;
-	int smallest = array[0];
+	int smallest;
 	int tmp;
-	int idx_smallest;
 
-	while (not_sorted)
+	if (array != NULL)
 	{
-		not_sorted = 0;
-
-		for (i = 0; i < size; i++)
+		smallest = array[0];
+		while (not_sorted)
 		{
-			smallest = array[i];
-			for (j = i + 1; j < size; j++)
+			not_sorted = 0;
+
+			for (i = 0; i < size; i++)
 			{
-				if (array[j] < smallest)
+				smallest = i;
+				for (j = i + 1; j < size; j++)
 				{
-					smallest = array[j];
-					idx_smallest = j;
-					not_sorted = 1;
+					if (array[j] < array[smallest])
+					{
+						smallest = j;
+						not_sorted = 1;
+					}
 				}
-			}
-			if (not_sorted)
-			{
-				tmp = array[i];
-				array[i] = array[idx_smallest];
-				array[idx_smallest] = tmp;
-				print_array(array, size);
+				if (not_sorted)
+				{
+					tmp = array[i];
+					array[i] = array[smallest];
+					array[smallest] = tmp;
+					print_array(array, size);
+					not_sorted = 0;
+				}
 			}
 		}
 	}
