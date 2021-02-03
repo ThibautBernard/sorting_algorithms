@@ -91,9 +91,12 @@ void counting_srt(int *array, size_t size, size_t place)
  */
 void radix_sort(int *array, size_t size)
 {
-	size_t max = find_max(array, size);
+	size_t max;
 	size_t place;
 
+	if (array == NULL || size < 2)
+		return;
+	max = find_max(array, size);
 	for (place = 1; max / place > 0; place *= 10)
 	{
 		counting_srt(array, size, place);
