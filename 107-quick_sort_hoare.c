@@ -13,27 +13,28 @@ int hoare_partition(int *array, int low, int high, int size_array)
 {
 	int pivot = array[high];
 	int tmp;
-	int TRUE = 1;
-	int i = low;
-	int j = high;
+	int i = low - 1;
+	int j = high + 1;
 
-	while (TRUE)
+	while (i < j)
 	{
-		while (array[i] < pivot)
+		do {
 			i++;
+		} while (array[i] < pivot);
 
-		while (array[j] > pivot)
+		do {
 			j--;
+		} while (array[j] > pivot);
 
-		if (i >= j)
-			return (j);
-
-		tmp = array[i];
-		array[i] = array[j];
-		array[j] = tmp;
-		print_array(array, size_array);
+		if (i < j)
+		{
+			tmp = array[i];
+			array[i] = array[j];
+			array[j] = tmp;
+			print_array(array, size_array);
+		}
 	}
-	return (TRUE);
+	return (i);
 }
 /**
  * sort - function that call partition and use recursivity
